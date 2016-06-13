@@ -22,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
     boolean gotCorrectAnswer;
     private TextView mTxtAttempts;
     private TextView mTxtScore;
+    private TextView mInfo1;
+    private TextView mInfo2;
+    private TextView mInfo3;
 
     private Button mBtn1;
     private Button mBtn2;
@@ -207,12 +210,15 @@ public class MainActivity extends AppCompatActivity {
         mBtn3 = (Button) findViewById(R.id.btn3); //country answer 3 btn3
         mTxtScore = (TextView) findViewById(R.id.txt_score); //country mTxtScore
         mTxtAttempts = (TextView) findViewById(R.id.txt_user_attempts); //txt attempts
+        mInfo1 = (TextView) findViewById(R.id.textView1); //info after answer submitted
+        mInfo2 = (TextView) findViewById(R.id.textView2); //info after answer submitted
+        mInfo3 = (TextView) findViewById(R.id.textView3); //info after answer submitted
 
         //1. set countries and first question
         setCountries();
         setQuestion();
 
-        //2a. set btn1 to submit 1
+        //2a. set btn1 to submit country1 object
         mClickListener1 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -221,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
         };
         mBtn1.setOnClickListener(mClickListener1);
 
-        //2b. set btn2 to submit an answer of 2
+        //2b. set btn2 to submit an answer of country2 object
         mClickListener2 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -230,7 +236,7 @@ public class MainActivity extends AppCompatActivity {
         };
         mBtn2.setOnClickListener(mClickListener2);
 
-        //set btn3 to submit an answer of 3
+        //set btn3 to submit an answer of country3 object
         mClickListener3 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -256,6 +262,7 @@ public class MainActivity extends AppCompatActivity {
             generated.add(next);
         }
 
+        //go from set to array of int
         Integer[] randoms = generated.toArray(new Integer[generated.size()]);
 
         //our randos
@@ -305,34 +312,63 @@ public class MainActivity extends AppCompatActivity {
         double maxValue2;
 
         switch (questionType) {
-            //largest economy question
+            //switch based on question type, then assess correctness
+
+            //largest economy/gdp question
             case 0:
                 maxValue0 = Math.max(country1.getmGDP(), Math.max(country2.getmGDP(), country3.getmGDP()));
                 //because all values in data are unique, we can attempt to match values to assess correctness
-                if (answer.getmGDP() == maxValue0) {
-                    gotCorrectAnswer = true;
-                } else {
-                    gotCorrectAnswer = false;
-                }
 
+                    if (answer.getmGDP() == maxValue0) {
+                        gotCorrectAnswer = true;
+                    } else {
+                        gotCorrectAnswer = false;
+                    }
+                //add a text view as an argument in the submit answer method
+
+                String info1 = country1.getmAbbrev() + " GDP: " + country1.getmGDP().toString();
+                mInfo1.setText(info1);
+                String info2 = country2.getmAbbrev() + " GDP: " + country2.getmGDP().toString();
+                mInfo2.setText(info2);
+                String info3 = country3.getmAbbrev() + " GDP: " + country3.getmGDP().toString();
+                mInfo3.setText(info3);
                 break;
+
             //population question
             case 1:
                 maxValue1 = Math.max(country1.getmPop(), Math.max(country2.getmPop(), country3.getmPop()));
-                if (answer.getmPop() == maxValue1) {
-                    gotCorrectAnswer = true;
-                } else {
-                    gotCorrectAnswer = false;
-                }
+
+                    if (answer.getmPop() == maxValue1) {
+                        gotCorrectAnswer = true;
+                    } else {
+                        gotCorrectAnswer = false;
+                    }
+
+                String info4 = country1.getmAbbrev() + " Pop: " + country1.getmPop().toString();
+                mInfo1.setText(info4);
+                String info5 = (country2.getmAbbrev() + " Pop: " + country2.getmPop().toString());
+                mInfo2.setText(info5);
+                String info6 = (country3.getmAbbrev() + " Pop: " + country3.getmPop().toString());
+                mInfo3.setText(info6);
+
                 break;
+
             //GDP per capita question
             case 2:
                 maxValue2 = Math.max(country1.getmGDPPerCapita(), Math.max(country2.getmGDPPerCapita(), country3.getmGDPPerCapita()));
-                if (answer.getmPop() == maxValue2) {
-                    gotCorrectAnswer = true;
-                }else {
-                    gotCorrectAnswer = false;
-                }
+
+                    if (answer.getmGDPPerCapita() == maxValue2) {
+                        gotCorrectAnswer = true;
+                    }else {
+                        gotCorrectAnswer = false;
+                    }
+
+                String info7 = country1.getmAbbrev() + " GDP/Capita: " + country1.getmGDPPerCapita().toString();
+                mInfo1.setText(info7);
+                String info8 = country2.getmAbbrev() + " GDP/Capita: " + country2.getmGDPPerCapita().toString();
+                mInfo2.setText(info8);
+                String info9 = country3.getmAbbrev() + " GDP/Capita: " + country3.getmGDPPerCapita().toString();
+                mInfo3.setText(info9);
                 break;
 
         }

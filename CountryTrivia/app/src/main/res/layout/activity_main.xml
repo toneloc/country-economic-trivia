@@ -11,15 +11,16 @@
     tools:context="com.toneloc.countrytrivia.MainActivity"
     android:background="#E0F2F1">
 
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Which country&apos;s economy is larger?i"
+        android:text="Which country&apos;s economy is larger?"
         android:id="@+id/question"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -28,24 +29,42 @@
         android:id="@+id/btn1"
         android:layout_below="@+id/question"
         android:layout_marginTop="52dp"
-        android:layout_alignLeft="@+id/question"
-        android:layout_alignStart="@+id/question"
         android:layout_alignRight="@+id/question"
         android:layout_alignEnd="@+id/question"
         android:background="#BA68C8"
-        android:textSize="@dimen/abc_text_size_body_1_material" />
+        android:textSize="@dimen/abc_text_size_body_1_material"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
         android:text="Ireland"
         android:id="@+id/btn2"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/btn1"
-        android:layout_alignStart="@+id/btn1"
-        android:layout_alignRight="@+id/btn1"
-        android:layout_alignEnd="@+id/btn1"
-        android:background="#4CAF50" />
+        android:background="#4CAF50"
+        android:layout_below="@+id/btn1"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="England"
+        android:id="@+id/btn3"
+        android:layout_alignRight="@+id/btn2"
+        android:layout_alignEnd="@+id/btn2"
+        android:layout_below="@+id/btn2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -65,16 +84,31 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"/>
 
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="England"
-        android:id="@+id/btn3"
-        android:layout_below="@+id/btn2"
-        android:layout_marginTop="61dp"
-        android:layout_alignRight="@+id/btn2"
-        android:layout_alignEnd="@+id/btn2"
-        android:layout_toEndOf="@+id/txt_user_attempts"
-        android:layout_alignLeft="@+id/btn2"
-        android:layout_alignStart="@+id/btn2" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textView1"
+        android:text="1"
+        android:layout_below="@+id/btn3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="76dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textView2"
+        android:text="2"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textView3"
+        android:text="3"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"/>
 </RelativeLayout>
